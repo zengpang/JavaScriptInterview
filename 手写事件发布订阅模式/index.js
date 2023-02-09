@@ -6,19 +6,19 @@ const EventManager=(function(){
     function on(event,handler){
         //判断事件是否存在
         if(!eventList[event]){
-            //如果没有则注册事件
+            //如果没有则注册事件,并给事件绑定handler函数
             eventList[event]=[handler]
         }else{
-            //如果有则给事件绑定函数
-            eventList[event].forEach(element => {
-                handler(data)
-            });
+            //如果有则给事件绑定handler函数(一个事件绑定多个函数)
+            eventList[event].push(handler);
         }
     }
-    //事件触发
+    //事件触发(形参event指代事件名，形参data事件绑定函数的传入参数)
     function fire(event,data)
     {
+       //判断事件存储对象是否包含该事件
        if(eventList[event]){
+         //如果有则调用事件绑定的所有函数
          eventList[event].forEach(handler=>handler(data))
        }
     }
@@ -53,5 +53,6 @@ const EventManager=(function(){
 EventManager.on('sayHello',function(data){
     console.log('hello'+data);
 })
-EventManager.fire('sayHello','jirengu');
+
+EventManager.fire('sayHello','HelloWorld');
 

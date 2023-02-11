@@ -30,6 +30,7 @@ function reactive(obj){
     //数据劫持处理函数
     //Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。
     const handler={
+        //获取数据时调用
         get(target,prop,receiver){
             track(target,prop);
             const value=Reflect.get(...arguments);
@@ -45,7 +46,7 @@ function reactive(obj){
                 return value;
             }  
         },
-        
+         //设置数据时调用
         set(target,key,value,receiver)
         {
             trigger(target,key,value);
@@ -57,11 +58,11 @@ function reactive(obj){
     //Proxy对象接收两个形参，第一个形参为劫持的目标对象，第二个形参为处理函数
     return new Proxy(obj,handler);
 }
-//
+//track函数：获取属性值时的处理函数，获取数据时，输出属性名即key
 function track(data,key){
     console.log('get data',key);
 }
-//
+//trigger函数：修改属性值时的处理函数，获取数据时，输出属性名即key
 function trigger(data,key,value)
 {
    console.log('set data',key,":",value);

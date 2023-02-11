@@ -14,7 +14,7 @@ function sayName(age,sex){
 // sayName();
 
 //使用call函数更改this并调用,call函数支持传入this,函数参数
-// sayName.call(obj1);
+// sayName.call(obj1,1,1);
 
 //使用apply函数更改this并调用,apply函数支持传入this,函数参数，并且支持传入一个参数数组
 //sayName.apply(obj1,[1])

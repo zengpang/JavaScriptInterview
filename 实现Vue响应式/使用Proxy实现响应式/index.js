@@ -36,26 +36,32 @@ function reactive(obj){
             //判断属性值类型是否为对象
             if(typeof value==='object')
             {
-                //递归
+                //递归遍历属性对象
                 return reactive(value);
             }
             else
             {
+                //否则返回值
                 return value;
             }  
         },
+        
         set(target,key,value,receiver)
         {
             trigger(target,key,value);
-            
+            //Reflect.set函数，作用为将值分配给属性的函数，返回一个Boolean,如果更新成功，则返回true
             return Reflect.set(...arguments);
         }
     }
+    //Proxy对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义(如属性查找,赋值，枚举，函数调用等)
+    //Proxy对象接收两个形参，第一个形参为劫持的目标对象，第二个形参为处理函数
     return new Proxy(obj,handler);
 }
+//
 function track(data,key){
     console.log('get data',key);
 }
+//
 function trigger(data,key,value)
 {
    console.log('set data',key,":",value);

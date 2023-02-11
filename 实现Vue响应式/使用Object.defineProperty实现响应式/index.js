@@ -5,25 +5,24 @@ var obj={};
 var age;
 /**Object.defineProperty() 方法会直接在一个对象上定义一个新属性
 ，或者修改一个对象的现有属性，并返回此对象。形参1即为对象，形参2为属性名（注:这种行为也被称之为数据劫持）
-
 **/
 /**
  * 数据劫持概念
 数据劫持，其实就是数据代理。
 数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。 
  */
-// Object.defineProperty(obj,'age',{
-//     get:function(){
-//         console.log('get age ...');
-//         return age;
-//     },
-//     set:function(val){
-//         console.log('set age ...');
-//         age=val;
-//     }
-// })
-// obj.age=100 //set age ... 调用set函数
-// console.log(obj.age) //get age ... ,100 调用get函数
+Object.defineProperty(obj,'age',{
+    get:function(){
+        console.log('get age ...');
+        return age;
+    },
+    set:function(val){
+        console.log('set age ...');
+        age=val;
+    }
+})
+obj.age=100 //set age ... 调用set函数
+console.log(obj.age) //get age ... ,100 调用get函数
 
 //-------------------------Object.defineProperty实现响应式------------------------------//
 //---------------------------------------------------------------------------------------//

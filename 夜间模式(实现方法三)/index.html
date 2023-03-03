@@ -7,6 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>深色模式</title>
     <style>
+        :root{
+            --bg:#f7f7f7;
+            --fontColor:#000
+        }
+        .dark-mode{
+            --bg:#000;
+            --fontColor:#f7f7f7
+        }
+        /* 媒体查询，检测用户游览器是否设置为夜间模式 */
+        /* @media(prefers-color-scheme:dark){
+            .dark-mode{
+            --bg:#000;
+            --fontColor:#f7f7f7
+            }
+        } */
         .reader-box.night {
             background-color: #000;
             color: white;
@@ -22,7 +37,9 @@
             padding: 0 100px;
             position: relative;
             margin: 0 auto;
-            background-color: #f7f7f7;
+            background-color: var(--bg);
+            color: var(--fontColor);
+            transition: all 1s;
         }
 
         .reader-box .title {

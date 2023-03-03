@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深色模式</title>
+    <style>
+        .modeBtn {
+            position: absolute;
+            right: 0;
+        }
+
+        .modeBtn::after {
+            content: '🌞';
+        }
+
+        .reader-box.night {
+            background-color: #000;
+            color: #fff;
+        }
+
+        #modeCheckBox {
+            display: none;
+        }
+
+        #modeCheckBox:checked + .reader-box {
+            background-color: #000;
+            color: #fff;
+            transition: all 1s;
+        }
+
+        #modeCheckBox:checked + .reader-box .title .modeBtn::after {
+            content: '🌜';
+            
+        }
+
+
+        .reader-box.night {
+            background-color: #000;
+            color: white;
+        }
+
+        body {
+            margin: 0;
+            background-color: #cccccc;
+        }
+        img{
+            width: 300px;
+            height: 200px;
+        }
+        .reader-box {
+            width: 760px;
+            padding: 0 100px;
+            position: relative;
+            margin: 0 auto;
+            background-color: #f7f7f7;
+            transition: all 1s;
+        }
+
+        .reader-box .title {
+            padding-top: 80px;
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+        }
+
+        .content {
+            padding: 30px 0;
+            line-height: 50px;
+        }
+
+        .content img {
+            display: block;
+            margin: 0 auto;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" name="" id="modeCheckBox">
+    <div class="reader-box">
+       
+        <header class="title">
+            格力市值一年蒸发近2000亿
+            <label for="modeCheckBox" class="modeBtn"></label>
+        </header>
+        <main class="content">
+            <img src="../图片资源/封面.jpg"
+            alt="">
+            <p>在董明珠的“左膀右臂”黄辉和望靖东相继离职后，格力电器内部谁能接班董明珠变得扑朔迷离。而董明珠近日公开表示，要将其刚毕业的秘书培养成“第二个董明珠”，再度引发外界对其接班人的热议。
+                与此同时，格力电器业绩和股价均表现低迷。财报显示，2021年三季度，格力电器营收和净利润均呈两位数下滑态势，而老对手美的集团的营收净利润均实现小幅增长。
+                截至发稿，格力电器股价已较去年高点下跌47%，市值蒸发近1855亿元；美的股价也呈震荡下跌走势，截至发稿较年初高点下跌32%，市值蒸发2390亿元。
+                家电行业分析师刘步尘向观察者网表示，目前整个家电行业已进入存量竞争时代，增长空间有限。随着国家持续对房地产行业进行调控，资本市场已开始重新审视家电行业的估值。</p>
+        </main>
+    </div>
+</body>
+
+
+</html>
